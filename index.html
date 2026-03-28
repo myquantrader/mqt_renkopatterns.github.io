@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MQT_RenkoPatterns – NinjaTrader 8 Strategy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background:#080808;color:#e6e6e6;line-height:1.6;
+  }
+  .container{max-width:1200px;margin:0 auto;padding:24px}
+  header{background:#000;border-bottom:3px solid #00d05a;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:16px}
+  .brand img{height:80px}
+  .brand h1{color:#00d05a;font-size:1.35rem;letter-spacing:1px}
+  .hero{
+    padding:64px 0;text-align:center;
+    background:linear-gradient(180deg,#050505,#0f0f0f);
+    border-bottom:2px solid #00d05a;margin-bottom:28px
+  }
+  .hero h2{color:#00d05a;font-size:2.4rem;margin-bottom:12px}
+  .hero p{max-width:900px;margin:0 auto 22px;color:#bfbfbf;font-size:1.05rem}
+  .cta{display:inline-block;background:#00d05a;color:#000;padding:12px 28px;border-radius:6px;font-weight:700;text-decoration:none;border:2px solid #00d05a}
+  .cta:hover{background:#000;color:#00d05a}
+  .section-title{color:#00d05a;text-align:center;font-size:1.8rem;margin:36px 0 18px;text-transform:uppercase}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:28px}
+  .feature{background:#111;border:1px solid #222;padding:18px;border-radius:8px}
+  .feature h3{color:#00d05a;margin-bottom:8px;font-size:1.02rem}
+  .feature p{color:#cfcfcf;font-size:0.95rem}
+  .screenshots{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin:20px 0 40px}
+  .shot{background:#121212;border:1px solid #222;padding:12px;border-radius:8px}
+  .shot img{width:100%;height:auto;border-radius:6px;display:block}
+  .shot h4{color:#00d05a;margin:10px 0 6px}
+  .shot p{color:#bdbdbd;font-size:0.95rem}
+  .how{background:#070707;padding:28px;border-radius:8px;border:1px solid #101010;margin-bottom:28px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .step{background:#0f0f0f;border-left:4px solid #00d05a;padding:14px;border-radius:6px}
+  .step h4{color:#00d05a;margin-bottom:8px}
+  .step p{color:#cfcfcf;font-size:0.95rem}
+  .table-wrap{overflow:auto;background:#0f0f0f;padding:12px;border-radius:8px;border:1px solid #161616;margin-bottom:28px}
+  table{width:100%;border-collapse:collapse;font-size:0.95rem}
+  th,td{padding:10px 12px;border-bottom:1px solid #1d1d1d}
+  th{background:#0b0b0b;color:#00d05a;text-align:left}
+  td:first-child{color:#a8ffbf;font-weight:600;white-space:nowrap}
+  .faq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:14px}
+  .faq{background:#121212;padding:14px;border-radius:8px;border:1px solid #222}
+  .faq h4{color:#00d05a;margin-bottom:8px}
+  .faq p{color:#cfcfcf;font-size:0.94rem}
+  .highlight-box{background:#0d1a0d;border:2px solid #00d05a;padding:20px;border-radius:8px;margin:20px 0}
+  .highlight-box h3{color:#00d05a;margin-bottom:12px}
+  .highlight-box ul{margin-left:20px;color:#cfcfcf}
+  .highlight-box ul li{margin:8px 0}
+  footer{padding:22px 0;text-align:center;border-top:3px solid #00d05a;margin-top:28px;color:#8d8d8d}
+  @media (max-width:600px){.hero h2{font-size:1.6rem}}
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="https://cdn.abacus.ai/images/133b690c-9562-4505-8f98-de7ef4ef9237.png" alt="myQuantrader logo" />
+        <h1>MQT_RenkoPatterns</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 id="hero-title">Automated Renko/Range Pattern Recognition Strategy</h2>
+      <p>
+        MQT_RenkoPatterns is a fully automated NinjaTrader 8 strategy designed for Renko and Range bar types. 
+        It detects pullback-rally reversal patterns, executes entries with precision stop-loss and target management, 
+        includes optional trailing stops, and features integrated ChartTrader buttons for manual control. 
+        Built with robust order management, session filtering, and optional trade markers with customizable labels.
+      </p>
+      <a href="#" class="cta" onclick="alert('Add your download/checkout URL here');return false;">Download / Install (placeholder)</a>
+    </section>
+
+    <div class="highlight-box">
+      <h3>🎯 Key Strategy Highlights</h3>
+      <ul>
+        <li><strong>Pattern Detection:</strong> Identifies pullback-rally reversals based on configurable bar counts</li>
+        <li><strong>Automated Execution:</strong> Market entries with brick-based stop-loss and profit targets</li>
+        <li><strong>Manual Override:</strong> ChartTrader buttons for Buy Long, Sell Short, and Close One position</li>
+        <li><strong>Top Toolbar Toggle:</strong> Strategy ON/OFF button in chart window toolbar for instant enable/disable</li>
+        <li><strong>Session Management:</strong> Configurable trading windows with auto-flatten at end time</li>
+        <li><strong>Optional Trailing Stops:</strong> Trigger-based trailing stop with configurable distance</li>
+        <li><strong>Visual Trade Markers:</strong> Customizable entry/exit arrows and dots with optional text labels</li>
+        <li><strong>Reversals Supported:</strong> Can reverse from long to short (and vice versa) on signal</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Key Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Pullback-Rally Pattern Logic</h3>
+        <p>Detects reversal patterns by counting consecutive bars in opposite directions. Configurable min/max pullback bars and min rally bars for precise pattern recognition.</p>
+      </div>
+      <div class="feature">
+        <h3>Brick-Based Stops & Targets</h3>
+        <p>Stop-loss and profit targets calculated as multiples of the Renko/Range brick size for consistent risk/reward across all market conditions.</p>
+      </div>
+      <div class="feature">
+        <h3>ChartTrader Integration</h3>
+        <p>Three custom buttons (Buy Long, Sell Short, Close One) added to ChartTrader panel for manual entries and exits without leaving the chart.</p>
+      </div>
+      <div class="feature">
+        <h3>Top Toolbar Strategy Toggle</h3>
+        <p>Strategy-ON/OFF button in the chart window's top toolbar (MainMenu) for instant enable/disable. Green when enabled, red when disabled.</p>
+      </div>
+      <div class="feature">
+        <h3>Session Time Filtering</h3>
+        <p>Define start/end times for trading window. Strategy only takes signals during active window and can auto-flatten positions at end time.</p>
+      </div>
+      <div class="feature">
+        <h3>Optional Trailing Stops</h3>
+        <p>Activate trailing stops after a configurable trigger distance (in ticks) is reached, then trail at a specified distance to lock in profits.</p>
+      </div>
+      <div class="feature">
+        <h3>Reversal Mode</h3>
+        <p>Enable reversals to automatically exit current position and enter opposite direction on counter-signal. Disable for directional-only trading.</p>
+      </div>
+      <div class="feature">
+        <h3>Signal Inversion</h3>
+        <p>Invert all signals (long becomes short, short becomes long) for contrarian strategies or testing alternative logic.</p>
+      </div>
+      <div class="feature">
+        <h3>Max Primary Positions</h3>
+        <p>Limit the number of concurrent primary positions to control risk and avoid over-trading during choppy conditions.</p>
+      </div>
+      <div class="feature">
+        <h3>ChartTrader Quantity Sync</h3>
+        <p>Optionally sync trade quantity from ChartTrader's quantity selector for dynamic position sizing without reloading the strategy.</p>
+      </div>
+      <div class="feature">
+        <h3>Customizable Trade Markers</h3>
+        <p>Draw entry arrows (up/down) and exit dots on chart with configurable colors, sizes, and optional text labels showing qty, price, or both.</p>
+      </div>
+      <div class="feature">
+        <h3>Robust Order Management</h3>
+        <p>Handles out-of-sequence events, order cancellations, and position updates with internal order tracking and timer-based execution reconciliation.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Chart Examples</h2>
+    <div class="screenshots">
+      <div class="shot">
+        <img src="https://cdn.abacus.ai/images/a3f1d3b1-5213-4ce1-8d28-ae277ec49660.png" alt="Renko pattern example 1" />
+        <h4>Pullback-Rally Reversal Patterns</h4>
+        <p>Green and red Renko bars showing pullback-rally reversals. Yellow dots mark potential entry signals. Green up arrows indicate long entries, red down arrows indicate short entries.</p>
+      </div>
+      <div class="shot">
+        <img src="https://cdn.abacus.ai/images/d9e6d80e-b062-4544-afce-b381129f1a69.png" alt="Renko pattern example 2" />
+        <h4>Entry Signals & Trade Markers</h4>
+        <p>Strategy detects pullback (red bars) followed by rally (green bars) and triggers long entry (green up arrow). Opposite for short entries (red down arrow). Yellow dots highlight pattern completion.</p>
+      </div>
+    </div>
+
+    <section class="how" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <h4>1. Pattern Detection</h4>
+          <p>On each bar close (or price change), strategy counts consecutive bars in opposite directions to identify pullback-rally patterns matching configured parameters.</p>
+        </div>
+        <div class="step">
+          <h4>2. Signal Generation</h4>
+          <p>When pullback bars (min/max) are followed by rally bars (min), a primary signal is generated. Signal can be inverted if InvertSignals is enabled.</p>
+        </div>
+        <div class="step">
+          <h4>3. Entry Validation</h4>
+          <p>Checks if another entry is allowed (max primary positions, session window, strategy enabled). If reversal mode is on and opposite position exists, initiates reversal.</p>
+        </div>
+        <div class="step">
+          <h4>4. Market Entry</h4>
+          <p>Submits market order for configured quantity (from parameter or ChartTrader). Entry order name includes "Manual" if triggered by button click.</p>
+        </div>
+        <div class="step">
+          <h4>5. Stop & Target Placement</h4>
+          <p>On fill, calculates stop-loss (entry ± brick × StoplossBars) and profit target (entry ± brick × TargetBars). Submits stop-market and limit orders.</p>
+        </div>
+        <div class="step">
+          <h4>6. Trailing Stop (Optional)</h4>
+          <p>If TrailStopTriggerTicks > 0 and price moves favorably, activates trailing stop at TrailStopDistanceTicks from current price.</p>
+        </div>
+        <div class="step">
+          <h4>7. Exit Management</h4>
+          <p>Position exits on stop-loss hit, target hit, trailing stop hit, manual "Close One" button, or end-of-session flatten (if enabled).</p>
+        </div>
+        <div class="step">
+          <h4>8. Trade Markers (Optional)</h4>
+          <p>Draws entry arrows and exit dots on chart with optional text labels showing quantity, price, or both. Fully customizable colors and sizes.</p>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">Strategy Parameters</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Parameter</th><th>Description</th><th>Default</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>InvertSignals</td><td>Reverse all signals (long ↔ short)</td><td>False</td></tr>
+          <tr><td>MaxPrimaryPositions</td><td>Max concurrent primary positions allowed</td><td>1</td></tr>
+          <tr><td>Trade Qty</td><td>Position size for each entry</td><td>1</td></tr>
+          <tr><td>Use ChartTrader Qty</td><td>Sync quantity from ChartTrader selector</td><td>False</td></tr>
+          <tr><td>Reversals</td><td>Allow reversals (exit + opposite entry on counter-signal)</td><td>True</td></tr>
+          <tr><td>Min PullBack Bars</td><td>Minimum consecutive bars in pullback direction</td><td>1</td></tr>
+          <tr><td>Max PullBack Bars</td><td>Maximum consecutive bars in pullback direction</td><td>2</td></tr>
+          <tr><td>Min Rally Bars</td><td>Minimum consecutive bars in rally direction to trigger signal</td><td>3</td></tr>
+          <tr><td>Target Bars</td><td>Profit target distance in brick multiples (0=off)</td><td>2</td></tr>
+          <tr><td>Stoploss Bars</td><td>Stop-loss distance in brick multiples</td><td>2</td></tr>
+          <tr><td>TrailStop TriggerTicks</td><td>Ticks of profit to activate trailing stop (0=off)</td><td>0</td></tr>
+          <tr><td>TrailStop DistanceTicks</td><td>Trailing stop distance in ticks from current price</td><td>14</td></tr>
+          <tr><td>StartTime</td><td>Start of trading window (HH:MM)</td><td>09:45</td></tr>
+          <tr><td>EndTime</td><td>End of trading window (HH:MM)</td><td>15:45</td></tr>
+          <tr><td>FlattenAtEndTime</td><td>Auto-exit all positions at EndTime</td><td>True</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">Visual Settings (Trade Markers)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Parameter</th><th>Description</th><th>Default</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Plot Trades On Chart</td><td>Draw entry/exit markers when orders fill</td><td>True</td></tr>
+          <tr><td>Long Arrow Size</td><td>Size of long entry up arrow (Tiny/Small/Medium/Large/Huge)</td><td>Medium</td></tr>
+          <tr><td>Short Arrow Size</td><td>Size of short entry down arrow</td><td>Medium</td></tr>
+          <tr><td>Exit Dot Size</td><td>Size of exit dot marker</td><td>Small</td></tr>
+          <tr><td>Show Trade Text Labels</td><td>Display text next to markers</td><td>False</td></tr>
+          <tr><td>Label Format</td><td>QtyAtPrice / PriceOnly / QtyOnly</td><td>QtyAtPrice</td></tr>
+          <tr><td>Entry Text Offset (ticks)</td><td>Distance of entry label from arrow (in ticks)</td><td>4</td></tr>
+          <tr><td>Exit Text Offset (ticks)</td><td>Distance of exit label from dot (in ticks)</td><td>4</td></tr>
+          <tr><td>Text Font Size</td><td>Font size for marker text labels</td><td>12</td></tr>
+          <tr><td>Long Entry Arrow Color</td><td>Color for long entry up arrow</td><td>LimeGreen</td></tr>
+          <tr><td>Short Entry Arrow Color</td><td>Color for short entry down arrow</td><td>Crimson</td></tr>
+          <tr><td>Exit Dot Color</td><td>Color for exit dot marker</td><td>Gold</td></tr>
+          <tr><td>Text Label Color</td><td>Color for marker text labels</td><td>White</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">ChartTrader Buttons</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Button</th><th>Function</th><th>Behavior</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Buy Long</td><td>Manual long entry</td><td>Green button. Enters long at market. If currently short, reverses to long (cancels orders, exits, then enters long).</td></tr>
+          <tr><td>Sell Short</td><td>Manual short entry</td><td>Red button. Enters short at market. If currently long, reverses to short (cancels orders, exits, then enters short).</td></tr>
+          <tr><td>Close One</td><td>Exit one position</td><td>Yellow button. Closes the first active position (long or short) by canceling its stop/target and submitting market exit.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">Top Toolbar Strategy Toggle</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Button State</th><th>Color</th><th>Behavior</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Strategy-ON</td><td>Green</td><td>Strategy is enabled. Automated signals will be executed. Manual buttons work normally.</td></tr>
+          <tr><td>Strategy-OFF</td><td>Red</td><td>Strategy is disabled. Automated signals are blocked. Manual buttons are also blocked with a print message.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:#bfbfbf;margin-top:12px">
+      The toggle button appears in the chart window's top toolbar (MainMenu) and is only visible when the chart tab containing this strategy is selected. 
+      Click to toggle between ON and OFF states. When disabled, all automated entries are blocked, and manual button clicks print a "blocked" message.
+    </p>
+
+    <h2 class="section-title">Pattern Logic Example</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Scenario</th><th>Bars Sequence</th><th>Signal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Long Entry</td><td>3+ green bars (rally) → 1-2 red bars (pullback) → 1 green bar (reversal)</td><td>Buy Long</td></tr>
+          <tr><td>Short Entry</td><td>3+ red bars (rally) → 1-2 green bars (pullback) → 1 red bar (reversal)</td><td>Sell Short</td></tr>
+          <tr><td>No Signal</td><td>Pullback < MinPullBackBars or > MaxPullBackBars</td><td>None</td></tr>
+          <tr><td>No Signal</td><td>Rally < MinRallyBars</td><td>None</td></tr>
+          <tr><td>Inverted</td><td>Same as above, but signal direction reversed</td><td>Opposite</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-grid">
+      <div class="faq">
+        <h4>Does this work on time-based bars?</h4>
+        <p>The strategy is designed for Renko and Range bar types. It will run on time-based bars but the brick-based stop/target logic may not be optimal. A warning is printed if bar type is not Renko/Range.</p>
+      </div>
+      <div class="faq">
+        <h4>Can I use this for live trading?</h4>
+        <p>Yes — designed for real-time execution with robust order management, session filtering, and manual override buttons. Backtest thoroughly and monitor the strategy toggle before going live.</p>
+      </div>
+      <div class="faq">
+        <h4>How do I enable trailing stops?</h4>
+        <p>Set TrailStopTriggerTicks > 0 (e.g., 10 ticks). Once position is in profit by that amount, trailing stop activates at TrailStopDistanceTicks from current price and trails as price moves favorably.</p>
+      </div>
+      <div class="faq">
+        <h4>What happens at end of session?</h4>
+        <p>If FlattenAtEndTime is enabled, strategy exits all positions at EndTime. If disabled, positions remain open into next session (use with caution for overnight risk).</p>
+      </div>
+      <div class="faq">
+        <h4>Can I reverse from long to short automatically?</h4>
+        <p>Yes — enable Reversals parameter. On counter-signal, strategy cancels all orders, exits current position, then enters opposite direction. Disable for directional-only trading.</p>
+      </div>
+      <div class="faq">
+        <h4>How do I hide trade markers?</h4>
+        <p>Set PlotTradesOnChart to False. All entry/exit arrows and dots will be hidden. Re-enable to show markers again.</p>
+      </div>
+      <div class="faq">
+        <h4>What is the "Close One" button for?</h4>
+        <p>Manually exits the first active position (useful if you have multiple positions from MaxPrimaryPositions > 1). Cancels its stop/target and submits market exit for that position's quantity.</p>
+      </div>
+      <div class="faq">
+        <h4>Can I customize marker colors and sizes?</h4>
+        <p>Yes — all marker colors (long/short arrows, exit dots, text labels) and sizes (arrow/dot) are fully customizable in the Visual settings group.</p>
+      </div>
+      <div class="faq">
+        <h4>How does the top toolbar toggle work?</h4>
+        <p>A "Strategy-ON" (green) or "Strategy-OFF" (red) button is added to the chart window's top toolbar. Click to toggle. When OFF, automated signals are blocked and manual buttons print a "blocked" message.</p>
+      </div>
+      <div class="faq">
+        <h4>What if I want to test contrarian logic?</h4>
+        <p>Enable InvertSignals to reverse all signals (long becomes short, short becomes long). Useful for testing alternative strategies or contrarian approaches.</p>
+      </div>
+    </div>
+
+    <footer style="margin-top:28px">
+      <p style="text-align:center;color:#9b9b9b;margin-top:18px">
+        © 2026 myQuantrader.com — MQT_RenkoPatterns Strategy. All rights reserved.
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll('.cta').forEach(function(el){
+      el.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' ') { el.click(); }
+      });
+    });
+  </script>
+</body>
+</html>
